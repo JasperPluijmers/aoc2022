@@ -23,9 +23,23 @@ pub fn two() {
                 .map(|number| number.parse::<usize>().unwrap())
                 .sum::<usize>()
         })
-        .sorted()
-        .rev()
+        .sorted_by(|a, b| Ord::cmp(b, a))
         .take(3)
         .sum::<usize>();
     println!("{:?}", calories);
+}
+
+fn get_calories() -> impl Iterator<Item = usize> {
+    let file = file_to_string("input/day1.txt");
+    let calories = file
+        .trim()
+        .split("\n\n")
+        .map(|list| {
+            list.split("\n")
+                .map(|number| number.parse::<usize>().unwrap())
+                .sum::<usize>()
+        })
+        .collect::<Vec<usize>>()
+        .into_iter();
+    calories
 }
