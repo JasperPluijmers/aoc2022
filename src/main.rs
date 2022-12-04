@@ -1,9 +1,10 @@
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 mod util;
 
 fn main() {
-    day3::one();
-    day3::two();
+    day4::one();
+    day4::two();
 }
