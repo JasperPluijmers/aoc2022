@@ -90,7 +90,14 @@ fn execute_line_second(
     from: usize,
     to: usize,
 ) {
-    let letters = stacks.get_mut(&from).unwrap().drain(0..amount).collect::<VecDeque<char>>();
+    let letters = stacks
+        .get_mut(&from)
+        .unwrap()
+        .drain(0..amount)
+        .collect::<VecDeque<char>>();
     let to_stack = stacks.get_mut(&to).unwrap();
-    letters.iter().rev().for_each(|item| to_stack.push_front(*item))
+    letters
+        .iter()
+        .rev()
+        .for_each(|item| to_stack.push_front(*item))
 }
